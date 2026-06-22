@@ -90,16 +90,16 @@ LIC_FILES_CHKSUM = "\
 require webserver-oob-npm.inc
 
 SRC_URI = " \
-    git://github.com/TexasInstruments/webserver-oob-demo.git;protocol=https;branch=main \
+    git://github.com/PrathamTI/webserver-oob-demo-pd.git;protocol=https;branch=clean-history \
     git://git.ti.com/git/gui-composer-components/ti-gc-components.git;protocol=https;branch=master;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/common/app/components;name=guicomposer \
     ${NPM_SRC_URI} \
 "
-SRCREV = "3777eb16343afd3e9654a7e379d821ce4bfa40be"
+SRCREV = "${AUTOREV}"
 SRCREV_guicomposer = "18115d266ba9f1956d06258ce2c8997fd1ef2efe"
 SRCREV_FORMAT = "default"
 PV = "1.0.0"
 
-RDEPENDS:${PN} = "nodejs tensorflow-lite nnstreamer analytics-demo-data"
+RDEPENDS:${PN} = "nodejs"
 
 WEBSERVER_ROOT = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 S = "${WEBSERVER_ROOT}/common/webserver"
@@ -174,7 +174,7 @@ do_install() {
     ln -s ${nonarch_libdir}/node_modules/${BPN}/server.js ${D}${bindir}/webserver-oob
 
     install -m 0755 ${WEBSERVER_ROOT}/common/linux_app/cpu_stats ${D}${bindir}/cpu_stats
-    install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
+    #install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
 
     # Install demos
     install -d ${D}${datadir}/${BPN}/demos
@@ -200,6 +200,9 @@ do_install() {
     sed -i -e 's|^APP_DIR=.*$|APP_DIR='"${datadir}/${BPN}/app"'|' \
            -e 's|^DEVICE_CONFIG=.*$|DEVICE_CONFIG='"${datadir}/${BPN}/app/device.json"'|' \
         ${D}${sysconfdir}/webserver-oob.conf
+
+    # Remove debug directories to prevent "installed-vs-shipped" errors
+    rm -rf ${D}${bindir}/.debug
 }
 
 SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
@@ -207,7 +210,7 @@ SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
 FILES:${PN} = " \
     ${bindir}/webserver-oob \
     ${bindir}/cpu_stats \
-    ${bindir}/audio_utils \
+    ${bindir}/.debug/cpu_stats \
     ${nonarch_libdir}/node_modules/${BPN} \
     ${datadir}/${BPN}/demos \
     ${systemd_system_unitdir}/webserver-oob.service \

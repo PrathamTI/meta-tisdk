@@ -12,5 +12,4 @@ IMAGE_INSTALL:append = " \
     nnstreamer \
     nnstreamer-tests \
     nnshark \
-    analytics-demo-data \
 "

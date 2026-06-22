@@ -12,6 +12,10 @@ SRC_URI:append:am62lxx-evm = "\
     file://uEnv-am62l-evm.txt \
 "
 
+SRC_URI:append:am62dxx-evm = "\
+    file://uEnv-am62d-edgeai.txt \
+"
+
 do_deploy:j722s:foundational() {
     install -d ${DEPLOYDIR}
     install -m 0644 ${S}/uEnv-sk.txt ${DEPLOYDIR}/uEnv.txt
@@ -29,6 +33,11 @@ do_deploy:am62pxx() {
 do_deploy:am62lxx-evm() {
     install -d ${DEPLOYDIR}
     install -m 0644 ${S}/uEnv-am62l-evm.txt ${DEPLOYDIR}/uEnv.txt
+}
+
+do_deploy:am62dxx-evm() {
+    install -d ${DEPLOYDIR}
+    install -m 0644 ${S}/uEnv-am62d-edgeai.txt ${DEPLOYDIR}/uEnv.txt
 }
 
 PR:append = "_tisdk_1"
