@@ -124,6 +124,7 @@ RDEPENDS:${PN}:am62dxx      = "nodejs tensorflow-lite nnstreamer analytics-demo-
 
 # speech_utils.c uses GStreamer headers — ensure cross-compile sysroot has them
 DEPENDS:append:am62pxx = " gstreamer1.0 glib-2.0"
+DEPENDS:append:am62dxx = " gstreamer1.0 glib-2.0"
 
 WEBSERVER_ROOT = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 S = "${WEBSERVER_ROOT}/common/webserver"
