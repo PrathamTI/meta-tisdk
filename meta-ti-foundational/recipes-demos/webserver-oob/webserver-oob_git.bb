@@ -249,6 +249,9 @@ do_install() {
     sed -i -e 's|^APP_DIR=.*$|APP_DIR='"${datadir}/${BPN}/app"'|' \
            -e 's|^DEVICE_CONFIG=.*$|DEVICE_CONFIG='"${datadir}/${BPN}/app/device.json"'|' \
         ${D}${sysconfdir}/webserver-oob.conf
+
+    # Remove debug directories to prevent "installed-vs-shipped" errors
+    rm -rf ${D}${bindir}/.debug
 }
 
 # All devices with audio-classification install audio_utils
