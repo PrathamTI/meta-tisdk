@@ -104,7 +104,7 @@ LIC_FILES_CHKSUM = "\
 require webserver-oob-npm.inc
 
 SRC_URI = " \
-    git://github.com/paresh-bhagat/webserver-oob-demo-pb.git;protocol=https;branch=clean-history \
+    git://github.com/PrathamTI/webserver-oob-demo-pd.git;protocol=https;branch=clean-history \
     git://git.ti.com/git/gui-composer-components/ti-gc-components.git;protocol=https;branch=master;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/common/app/components;name=guicomposer \
     ${NPM_SRC_URI} \
 "
