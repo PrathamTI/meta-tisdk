@@ -114,12 +114,12 @@ SRCREV_FORMAT      = "default"
 PV = "1.0.0"
 
 RDEPENDS:${PN}             = "nodejs"
-RDEPENDS:${PN}:am335x-evm  = "nodejs tensorflow-lite nnstreamer analytics-demo-data"
-RDEPENDS:${PN}:am62xx       = "nodejs tensorflow-lite nnstreamer analytics-demo-data"
+RDEPENDS:${PN}:am335x-evm  = "nodejs"
+RDEPENDS:${PN}:am62xx       = "nodejs"
 # am62pxx adds speech_utils which needs en_v5_static.onnx (generated from en_v5.onnx
 # in pkg_postinst_ontarget).  Add python3-onnx if available in the layer:
-RDEPENDS:${PN}:am62pxx      = "nodejs tensorflow-lite nnstreamer analytics-demo-data python3-onnx"
-RDEPENDS:${PN}:am62lxx      = "nodejs tensorflow-lite nnstreamer analytics-demo-data"
+RDEPENDS:${PN}:am62pxx      = "nodejs"
+RDEPENDS:${PN}:am62lxx      = "nodejs"
 RDEPENDS:${PN}:am62dxx      = "nodejs"
 
 # speech_utils.c uses GStreamer headers — ensure cross-compile sysroot has them
