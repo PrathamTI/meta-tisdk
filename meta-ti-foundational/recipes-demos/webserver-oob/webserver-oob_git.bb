@@ -131,7 +131,7 @@ PACKAGES = "${PN}"
 PACKAGES:class-native = "${PN}"
 
 # Skip QA checks that are problematic for this mixed Node.js/C utility package
-INSANE_SKIP:${PN} += "debug-files"
+INSANE_SKIP:${PN} += "debug-files dev-deps"
 
 # Optional model data for speech-to-text (am62pxx only)
 RRECOMMENDS:${PN}:am62pxx = "analytics-demo-data"
