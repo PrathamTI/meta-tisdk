@@ -120,7 +120,7 @@ RDEPENDS:${PN}:am62xx       = "nodejs"
 # in pkg_postinst_ontarget).  Add python3-onnx if available in the layer:
 RDEPENDS:${PN}:am62pxx      = "nodejs"
 RDEPENDS:${PN}:am62lxx      = "nodejs"
-RDEPENDS:${PN}:am62dxx      = "nodejs ti-tidl-osrt nnstreamer analytics-demo-data"
+RDEPENDS:${PN}:am62dxx      = "nodejs"
 
 # speech_utils.c uses GStreamer headers — ensure cross-compile sysroot has them
 DEPENDS:append:am62pxx = " gstreamer1.0 glib-2.0"
