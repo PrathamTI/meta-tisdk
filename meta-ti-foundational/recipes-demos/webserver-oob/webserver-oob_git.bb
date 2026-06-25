@@ -291,8 +291,11 @@ do_install:append:am62lxx() {
 }
 
 do_install:append:am62dxx() {
-    install -m 0755 ${WEBSERVER_ROOT}/devices/am62dxx/linux_app/audio_utils \
-        ${D}${bindir}/audio_utils
+    # Only install audio_utils if it was built (am62dxx may not have audio demos)
+    if [ -f ${WEBSERVER_ROOT}/devices/am62dxx/linux_app/audio_utils ]; then
+        install -m 0755 ${WEBSERVER_ROOT}/devices/am62dxx/linux_app/audio_utils \
+            ${D}${bindir}/audio_utils
+    fi
 }
 
 SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
@@ -310,6 +313,7 @@ FILES:${PN}:append:am335x-evm = " ${bindir}/audio_utils"
 FILES:${PN}:append:am62xx      = " ${bindir}/audio_utils"
 FILES:${PN}:append:am62pxx     = " ${bindir}/audio_utils ${bindir}/speech_utils ${bindir}/make_static_onnx"
 FILES:${PN}:append:am62lxx     = " ${bindir}/audio_utils"
-FILES:${PN}:append:am62dxx     = " ${bindir}/audio_utils"
+# am62dxx may not have audio_utils if no audio demos are configured
+# FILES:${PN}:append:am62dxx     = " ${bindir}/audio_utils"
 
 PR = "r1"
