@@ -309,6 +309,7 @@ SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
 FILES:${PN} = " \
     ${bindir}/webserver-oob \
     ${bindir}/cpu_stats \
+     ${bindir}/.debug/cpu_stats \
     ${nonarch_libdir}/node_modules/${BPN} \
     ${datadir}/${BPN}/demos \
     ${systemd_system_unitdir}/webserver-oob.service \
