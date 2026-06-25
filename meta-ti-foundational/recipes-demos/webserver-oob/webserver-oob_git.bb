@@ -126,6 +126,19 @@ RDEPENDS:${PN}:am62dxx      = "nodejs"
 DEPENDS:append:am62pxx = " gstreamer1.0 glib-2.0"
 DEPENDS:append:am62dxx = " gstreamer1.0 glib-2.0"
 
+# Disable automatic dev package splitting to avoid webserver-oob-dev dependency issues
+PACKAGES = "${PN}"
+PACKAGES:class-native = "${PN}"
+
+# Optional model data for speech-to-text (am62pxx only)
+RRECOMMENDS:${PN}:am62pxx = "analytics-demo-data"
+
+# Remove any implicit analytics-demo-data dependency for other devices
+RDEPENDS:${PN}:remove:am62dxx = "analytics-demo-data"
+RDEPENDS:${PN}:remove:am62xx = "analytics-demo-data"
+RDEPENDS:${PN}:remove:am62lxx = "analytics-demo-data"
+RDEPENDS:${PN}:remove:am335x-evm = "analytics-demo-data"
+
 WEBSERVER_ROOT = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 S = "${WEBSERVER_ROOT}/common/webserver"
 
