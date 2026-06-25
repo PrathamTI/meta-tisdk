@@ -130,6 +130,9 @@ DEPENDS:append:am62dxx = " gstreamer1.0 glib-2.0"
 PACKAGES = "${PN}"
 PACKAGES:class-native = "${PN}"
 
+# Skip QA checks that are problematic for this mixed Node.js/C utility package
+INSANE_SKIP:${PN} += "debug-files"
+
 # Optional model data for speech-to-text (am62pxx only)
 RRECOMMENDS:${PN}:am62pxx = "analytics-demo-data"
 
@@ -303,13 +306,15 @@ SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
 FILES:${PN} = " \
     ${bindir}/webserver-oob \
     ${bindir}/cpu_stats \
-    ${bindir}/.debug/cpu_stats \
     ${nonarch_libdir}/node_modules/${BPN} \
     ${datadir}/${BPN}/demos \
     ${systemd_system_unitdir}/webserver-oob.service \
     ${datadir}/${BPN}/app \
     ${sysconfdir}/webserver-oob.conf \
 "
+
+# Explicitly include cmake files to prevent dev-deps issues
+FILES:${PN} += "${libdir}/cmake/*"
 FILES:${PN}:append:am335x-evm = " ${bindir}/audio_utils"
 FILES:${PN}:append:am62xx      = " ${bindir}/audio_utils"
 FILES:${PN}:append:am62pxx     = " ${bindir}/audio_utils ${bindir}/speech_utils ${bindir}/make_static_onnx"
