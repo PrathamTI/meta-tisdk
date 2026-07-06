@@ -99,7 +99,7 @@ SRCREV_guicomposer = "18115d266ba9f1956d06258ce2c8997fd1ef2efe"
 SRCREV_FORMAT      = "default"
 PV = "1.0.0"
 
-RDEPENDS:${PN} = "nodejs tensorflow-lite nnstreamer analytics-demo-data"
+RDEPENDS:${PN} = "nodejs"
 
 WEBSERVER_ROOT = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 S = "${WEBSERVER_ROOT}/common/webserver"
