@@ -94,7 +94,7 @@ SRC_URI = " \
     git://git.ti.com/git/gui-composer-components/ti-gc-components.git;protocol=https;branch=master;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/common/app/components;name=guicomposer \
     ${NPM_SRC_URI} \
 "
-SRCREV = "dd04db9780c055820f90b559f9dfe15dddafdc0b"
+SRCREV = "${AUTOREV}"
 SRCREV_guicomposer = "18115d266ba9f1956d06258ce2c8997fd1ef2efe"
 SRCREV_FORMAT      = "default"
 PV = "1.0.0"
