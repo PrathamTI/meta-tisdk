@@ -174,7 +174,7 @@ do_install() {
     ln -s ${nonarch_libdir}/node_modules/${BPN}/server.js ${D}${bindir}/webserver-oob
 
     install -m 0755 ${WEBSERVER_ROOT}/common/linux_app/cpu_stats ${D}${bindir}/cpu_stats
-    install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
+    #install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
 
     # Install demos
     install -d ${D}${datadir}/${BPN}/demos
@@ -207,7 +207,6 @@ SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
 FILES:${PN} = " \
     ${bindir}/webserver-oob \
     ${bindir}/cpu_stats \
-    ${bindir}/audio_utils \
     ${nonarch_libdir}/node_modules/${BPN} \
     ${datadir}/${BPN}/demos \
     ${systemd_system_unitdir}/webserver-oob.service \
