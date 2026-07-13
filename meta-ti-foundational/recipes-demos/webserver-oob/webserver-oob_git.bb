@@ -89,12 +89,14 @@ LIC_FILES_CHKSUM = "\
 # source repository. Provides NPM_SRC_URI and NPM_PACKAGE_MAP variables.
 require webserver-oob-npm.inc
 
+WEBSERVER_ROOT = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 SRC_URI = " \
-    git://github.com/PrathamTI/webserver-oob-demo-pd.git;protocol=https;branch=clean-history \
+    git://github.com/v-singh1/webserver-oob-demo-vs.git;protocol=https;branch=horizon_dev \
     git://git.ti.com/git/gui-composer-components/ti-gc-components.git;protocol=https;branch=master;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/common/app/components;name=guicomposer \
     ${NPM_SRC_URI} \
 "
 SRCREV = "${AUTOREV}"
+#SRCREV = "a835106fea8c2a07666d3b9f05549a1ba8cc1291"
 SRCREV_guicomposer = "18115d266ba9f1956d06258ce2c8997fd1ef2efe"
 SRCREV_FORMAT      = "default"
 PV = "1.0.0"
@@ -174,7 +176,12 @@ do_install() {
     ln -s ${nonarch_libdir}/node_modules/${BPN}/server.js ${D}${bindir}/webserver-oob
 
     install -m 0755 ${WEBSERVER_ROOT}/common/linux_app/cpu_stats ${D}${bindir}/cpu_stats
-    #install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
+
+    # Install audio_utils & speech utils for AM62D demo
+    if [ "${DEVICE_ID}" = "am62dxx" ]; then
+        install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
+        install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/speech_utils ${D}${bindir}/speech_utils
+    fi
 
     # Install demos
     install -d ${D}${datadir}/${BPN}/demos
@@ -190,7 +197,7 @@ do_install() {
 
     rm -rf ${D}${datadir}/${BPN}/app/components/.git*
     find ${D}${datadir}/${BPN}/app/components -name '*\.out' -exec rm {} \;
-    find ${D}${datadir}/${BPN}/app/components -name '*\.exe' -exec rm {} \;
+    find ${D}${datadir}/${BPN}/app/ -name '*\.out' -exec rm {} \;
 
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${S}/webserver-oob.service ${D}${systemd_system_unitdir}/
@@ -207,6 +214,8 @@ SYSTEMD_SERVICE:${PN} = "webserver-oob.service"
 FILES:${PN} = " \
     ${bindir}/webserver-oob \
     ${bindir}/cpu_stats \
+    ${bindir}/audio_utils \
+    ${bindir}/speech_utils \
     ${nonarch_libdir}/node_modules/${BPN} \
     ${datadir}/${BPN}/demos \
     ${systemd_system_unitdir}/webserver-oob.service \

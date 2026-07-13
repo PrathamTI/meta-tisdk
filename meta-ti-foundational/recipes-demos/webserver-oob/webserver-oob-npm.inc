@@ -32,7 +32,7 @@ NPM_SRC_URI = " \
     https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz;unpack=0;name=npm-get-proto-1-0-1 \
     https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz;unpack=0;name=npm-gopd-1-2-0 \
     https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz;unpack=0;name=npm-has-symbols-1-1-0 \
-    https://registry.npmjs.org/hasown/-/hasown-2.0.3.tgz;unpack=0;name=npm-hasown-2-0-3 \
+    https://registry.npmjs.org/hasown/-/hasown-2.0.4.tgz;unpack=0;name=npm-hasown-2-0-4 \
     https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz;unpack=0;name=npm-http-errors-2-0-1 \
     https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz;unpack=0;name=npm-iconv-lite-0-4-24 \
     https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz;unpack=0;name=npm-inherits-2-0-4 \
@@ -52,7 +52,7 @@ NPM_SRC_URI = " \
     https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz;unpack=0;name=npm-parseurl-1-3-3 \
     https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.13.tgz;unpack=0;name=npm-path-to-regexp-0-1-13 \
     https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz;unpack=0;name=npm-proxy-addr-2-0-7 \
-    https://registry.npmjs.org/qs/-/qs-6.15.2.tgz;unpack=0;name=npm-qs-6-15-2 \
+    https://registry.npmjs.org/qs/-/qs-6.15.3.tgz;unpack=0;name=npm-qs-6-15-3 \
     https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz;unpack=0;name=npm-range-parser-1-2-1 \
     https://registry.npmjs.org/raw-body/-/raw-body-2.5.3.tgz;unpack=0;name=npm-raw-body-2-5-3 \
     https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz;unpack=0;name=npm-safe-buffer-5-2-1 \
@@ -60,7 +60,7 @@ NPM_SRC_URI = " \
     https://registry.npmjs.org/send/-/send-0.19.2.tgz;unpack=0;name=npm-send-0-19-2 \
     https://registry.npmjs.org/serve-static/-/serve-static-1.16.3.tgz;unpack=0;name=npm-serve-static-1-16-3 \
     https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz;unpack=0;name=npm-setprototypeof-1-2-0 \
-    https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz;unpack=0;name=npm-side-channel-1-1-0 \
+    https://registry.npmjs.org/side-channel/-/side-channel-1.1.1.tgz;unpack=0;name=npm-side-channel-1-1-1 \
     https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.1.tgz;unpack=0;name=npm-side-channel-list-1-0-1 \
     https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz;unpack=0;name=npm-side-channel-map-1-0-1 \
     https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz;unpack=0;name=npm-side-channel-weakmap-1-0-2 \
@@ -103,7 +103,7 @@ SRC_URI[npm-get-intrinsic-1-3-0.sha256sum] = "662e27e54e00fe46fbb08f9f4aacb054e3
 SRC_URI[npm-get-proto-1-0-1.sha256sum] = "eb2cc52afb1f1fd82c5fc2a58c2380f0f16fdcdb5631538f3c66887435d70681"
 SRC_URI[npm-gopd-1-2-0.sha256sum] = "d536d0de4dd285dc1468fbb7f39334a47ee0eec9c27f9b626a6e71466c9fda82"
 SRC_URI[npm-has-symbols-1-1-0.sha256sum] = "4460c7532f28b8df2ddc9a1ec17816d43c24d4b9591dc6c5936b82f7f86ae7c5"
-SRC_URI[npm-hasown-2-0-3.sha256sum] = "b0b3cede36255a17fd7945c280a31fd4cbba32e108c17b4a6e883db64c2791d0"
+SRC_URI[npm-hasown-2-0-4.sha256sum] = "e9d2b03f95573600e1c13124ce618e3142ed2c538d164595bedcd4408b8a4e4c"
 SRC_URI[npm-http-errors-2-0-1.sha256sum] = "ad62bbb11baf079699a3f269ed089efdb589be16083ceed94a1117801e1a6c61"
 SRC_URI[npm-iconv-lite-0-4-24.sha256sum] = "576c64f2098ed44c3d5e48d7a9dc65512700c1d6a969a71a74d474da8e734635"
 SRC_URI[npm-inherits-2-0-4.sha256sum] = "d94dbc6c1bb3c5ac0fb12a73ade187108fc60de273a1b754f55044eb5e24afaf"
@@ -123,7 +123,7 @@ SRC_URI[npm-on-finished-2-4-1.sha256sum] = "f64d42f1049c386cdac5204737e095642716
 SRC_URI[npm-parseurl-1-3-3.sha256sum] = "56ef4bfa11e097ce8196b26fa04b42d6091c32498fcab4478e6dd298435f021a"
 SRC_URI[npm-path-to-regexp-0-1-13.sha256sum] = "17e169761622800a26cea5817e5b5078067122aab7996de8525014b771fa1db2"
 SRC_URI[npm-proxy-addr-2-0-7.sha256sum] = "a0d1b6f34f6d4e733429ba95f7adb7833c8ceab916ba574a93f8a8476bee46d9"
-SRC_URI[npm-qs-6-15-2.sha256sum] = "e699d4b3ac62181f5bcd29c1d15224054c20d81aab67f7b2e75b7f7a2185b897"
+SRC_URI[npm-qs-6-15-3.sha256sum] = "c0278b636e7a016d6e835cd8f194a63c276dff430620e4a04344a4ba8892c0f9"
 SRC_URI[npm-range-parser-1-2-1.sha256sum] = "905266e2662590b009e38dc096d4e4e103aafda9cb67e658ca985b2d0ad2f926"
 SRC_URI[npm-raw-body-2-5-3.sha256sum] = "60cfe182611cf752811118c4f144f7fe24256119ec58defda577d25858b93d4f"
 SRC_URI[npm-safe-buffer-5-2-1.sha256sum] = "5d181804516c4a693a384272a7bd0e42d17e0d4b301ccfbe408669ccafdcb3e8"
@@ -131,7 +131,7 @@ SRC_URI[npm-safer-buffer-2-1-2.sha256sum] = "78812f65ae3b98071ce1c9bacbe0666f422
 SRC_URI[npm-send-0-19-2.sha256sum] = "9bcd25b126cb1d2984516eaacc2af5e2a83d0c6ab440f92d21cdbd1a2153f990"
 SRC_URI[npm-serve-static-1-16-3.sha256sum] = "d70ba2ed6f3a7627c0b766de22cb5a97a77035d6da7843f1ddac9abed9bdcf89"
 SRC_URI[npm-setprototypeof-1-2-0.sha256sum] = "c83bcc6ea632567e3f6928a83a1c0c7073519aaca9b88b847a3b404417eadfe2"
-SRC_URI[npm-side-channel-1-1-0.sha256sum] = "8493e77b990b242efebd824d0912df161bf640fc75071d5bc844ce0d7706a485"
+SRC_URI[npm-side-channel-1-1-1.sha256sum] = "e6edbc8f203901612a3cd938f940ed520333923986d5427b95c87aa1882e7bd5"
 SRC_URI[npm-side-channel-list-1-0-1.sha256sum] = "793c94ac215be772757045f8804406578b8cbc1bda7e1cde23011f9145af74f7"
 SRC_URI[npm-side-channel-map-1-0-1.sha256sum] = "3b256b6421300bcc962d891b1588fd4b64e84e339b9c29f78c61b72f2a7116d6"
 SRC_URI[npm-side-channel-weakmap-1-0-2.sha256sum] = "3b2a54f0c5e7ad898c8f0ffda2a6805fb2cc5d68f53addf0b4a9ec0db9d0d06e"
@@ -176,7 +176,7 @@ NPM_PACKAGE_MAP = " \
     node_modules/get-proto=get-proto-1.0.1.tgz \
     node_modules/gopd=gopd-1.2.0.tgz \
     node_modules/has-symbols=has-symbols-1.1.0.tgz \
-    node_modules/hasown=hasown-2.0.3.tgz \
+    node_modules/hasown=hasown-2.0.4.tgz \
     node_modules/http-errors=http-errors-2.0.1.tgz \
     node_modules/iconv-lite=iconv-lite-0.4.24.tgz \
     node_modules/inherits=inherits-2.0.4.tgz \
@@ -195,7 +195,7 @@ NPM_PACKAGE_MAP = " \
     node_modules/parseurl=parseurl-1.3.3.tgz \
     node_modules/path-to-regexp=path-to-regexp-0.1.13.tgz \
     node_modules/proxy-addr=proxy-addr-2.0.7.tgz \
-    node_modules/qs=qs-6.15.2.tgz \
+    node_modules/qs=qs-6.15.3.tgz \
     node_modules/range-parser=range-parser-1.2.1.tgz \
     node_modules/raw-body=raw-body-2.5.3.tgz \
     node_modules/safe-buffer=safe-buffer-5.2.1.tgz \
@@ -204,7 +204,7 @@ NPM_PACKAGE_MAP = " \
     node_modules/send/node_modules/ms=ms-2.1.3.tgz \
     node_modules/serve-static=serve-static-1.16.3.tgz \
     node_modules/setprototypeof=setprototypeof-1.2.0.tgz \
-    node_modules/side-channel=side-channel-1.1.0.tgz \
+    node_modules/side-channel=side-channel-1.1.1.tgz \
     node_modules/side-channel-list=side-channel-list-1.0.1.tgz \
     node_modules/side-channel-map=side-channel-map-1.0.1.tgz \
     node_modules/side-channel-weakmap=side-channel-weakmap-1.0.2.tgz \
