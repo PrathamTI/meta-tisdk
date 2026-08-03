@@ -95,13 +95,18 @@ SRC_URI = " \
     git://git.ti.com/git/gui-composer-components/ti-gc-components.git;protocol=https;branch=master;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/common/app/components;name=guicomposer \
     ${NPM_SRC_URI} \
 "
-SRCREV = "297f002e65c4eceb172706049f703bed7db4152e"
+
+# am62dxx ships a Vue/Vuetify frontend — pull in its build-time npm packages
+SRC_URI:append:am62dxx = " ${FRONTEND_NPM_SRC_URI}"
+
+SRCREV = "45196c1b9216f5b156920d5a4af268762cf49036"
 SRCREV_guicomposer = "18115d266ba9f1956d06258ce2c8997fd1ef2efe"
 SRCREV_FORMAT = "default"
 PV = "1.0.0"
 
 RDEPENDS:${PN} = "nodejs tensorflow-lite nnstreamer analytics-demo-data"
 RDEPENDS:${PN}:append:am64xx = " benchmark-demo-firmware"
+RDEPENDS:${PN}:am62dxx-evm = "nodejs"
 # speech-to-text support for am62pxx, am62xx, am62lxx
 RDEPENDS:${PN}:append:am62pxx = " gstreamer1.0 glib-2.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good onnxruntime"
 RDEPENDS:${PN}:append:am62xx = " gstreamer1.0 glib-2.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good onnxruntime"
@@ -185,9 +190,6 @@ do_install() {
     ln -s ${nonarch_libdir}/node_modules/${BPN}/server.js ${D}${bindir}/webserver-oob
 
     install -m 0755 ${WEBSERVER_ROOT}/common/linux_app/cpu_stats ${D}${bindir}/cpu_stats
-    if [ -f ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ]; then
-        install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils ${D}${bindir}/audio_utils
-    fi
     if [ -f ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/speech_utils ]; then
         install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/speech_utils ${D}${bindir}/speech_utils
     fi
