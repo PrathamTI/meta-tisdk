@@ -295,6 +295,9 @@ do_install:append:am62dxx() {
         ${D}${datadir}/${BPN}/device.json
     rm -f ${D}${datadir}/${BPN}/app/device.json
 
+    install -m 0644 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/server-plugin.js \
+    ${D}${datadir}/${BPN}/server-plugin.js
+
     # Install ALSA-based audio and speech utilities
     install -m 0755 ${WEBSERVER_ROOT}/devices/${DEVICE_ID}/linux_app/audio_utils \
         ${D}${bindir}/audio_utils
@@ -329,7 +332,7 @@ FILES:${PN}:append:am62pxx = " ${bindir}/speech_utils"
 FILES:${PN}:append:am62xx = " ${bindir}/speech_utils"
 FILES:${PN}:append:am62lxx = " ${bindir}/speech_utils"
 # am62dxx: speech_utils (ALSA-based), and device.json at parent of app/
-FILES:${PN}:append:am62dxx = " ${bindir}/speech_utils ${datadir}/${BPN}/device.json"
+FILES:${PN}:append:am62dxx = " ${bindir}/speech_utils ${datadir}/${BPN}/device.json ${datadir}/${BPN}/server-plugin.js"
 
 FILES:${PN}:append:am64xx = " ${bindir}/rpmsg_json ${systemd_system_unitdir}/rpmsg-json.service"
 
