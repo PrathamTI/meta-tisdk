@@ -95,7 +95,7 @@ require webserver-oob-npm.inc
 require webserver-oob-frontend-npm.inc
 
 SRC_URI = " \
-    git://github.com/TexasInstruments/webserver-oob-demo.git;protocol=https;branch=main \
+    git://github.com/v-singh1/webserver-oob-demo-vs;protocol=https;branch=main \
     git://git.ti.com/git/gui-composer-components/ti-gc-components.git;protocol=https;branch=master;destsuffix=${BB_GIT_DEFAULT_DESTSUFFIX}/common/app/components;name=guicomposer \
     ${NPM_SRC_URI} \
 "
@@ -103,7 +103,7 @@ SRC_URI = " \
 # am62dxx ships a Vue/Vuetify frontend — pull in its build-time npm packages
 SRC_URI:append:am62dxx = " ${FRONTEND_NPM_SRC_URI}"
 
-SRCREV = "45196c1b9216f5b156920d5a4af268762cf49036"
+SRCREV = "${AUTOREV}"
 SRCREV_guicomposer = "18115d266ba9f1956d06258ce2c8997fd1ef2efe"
 SRCREV_FORMAT = "default"
 PV = "1.0.0"
